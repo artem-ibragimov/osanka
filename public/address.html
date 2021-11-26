@@ -22,7 +22,6 @@
 
 
     <main class="container">
-
       <header class="sticky">
         <nav>
           <ul>
@@ -33,33 +32,25 @@
             </li>
           </ul>
           <ul>
-            <li><a href="./address.html" role="button" class="outline">Адрес</a></li>
+            <li><a href="./index.html" role="button" class="outline">Записаться</a></li>
           </ul>
         </nav>
       </header>
 
-      <article>
-        <div class="relative flex_column">
-          <img src="./img/massage/back.png" />
-          <div class="img_description flex_column">
-            <h3>Массаж спины</h3>
-            <h5>1000 руб. (40 мин)</h5>
-          </div>
-        </div>
-      </article>
-
-      <article>
-        <div class="relative flex_column">
-          <img src="./img/massage/body.png" />
-          <div class="img_description flex_column">
-            <h3>Массаж тела</h3>
-            <h5>1800 руб. (60 мин)</h5>
-          </div>
-        </div>
-      </article>
+      <img id="map" src="" />
 
     </main>
 
   </body>
+  <script>
+    window.addEventListener('load', () => {
+      fetch('https://static-maps.yandex.ru/1.x/?ll=49.136322%2C55.791633&size=450,450&z=17&l=map&pt=49.135889,55.791562,org')
+        .then((res) => res.blob())
+        .then((blob) => {
+          document.querySelector('#map').src = URL.createObjectURL(blob)
+        })
+        .catch(console.error)
+    })
+  </script>
 
 </html>
