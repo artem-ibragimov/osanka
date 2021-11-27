@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <link rel="stylesheet" href="./css/theme.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="https://dikidi.net/assets/js/widget_record/widget2.min.js"></script>
 
     <title>OsAnka</title>
 
@@ -19,6 +20,8 @@
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+
 
     <header class="bar">
       <h3>OsAnka</h3>
@@ -29,7 +32,7 @@
 
     <main class="container">
 
-      <div class="card relative flex_column">
+      <div class="card relative flex_column" data-url="https://dikidi.net/#widget=67251">
         <img src="./img/massage/back.png" />
         <div class="img_description flex_column">
           <h3>Массаж спины</h3>
@@ -38,7 +41,7 @@
         </div>
       </div>
 
-      <div class="card relative flex_column">
+      <div class="card relative flex_column" data-url="https://dikidi.net/#widget=67253">
         <img src="./img/massage/body.png" />
         <div class="img_description flex_column">
           <h3>Массаж тела</h3>
@@ -47,7 +50,7 @@
         </div>
       </div>
 
-      <div class="card relative flex_column">
+      <div class="card relative flex_column" data-url="https://dikidi.net/#widget=67255">
         <img src="./img/massage/foot.png" />
         <div class="img_description flex_column">
           <h3>Массаж ног </h3>
@@ -56,7 +59,7 @@
         </div>
       </div>
 
-      <div class="card relative flex_column">
+      <div class="card relative flex_column" data-url="https://dikidi.net/#widget=67257">
         <img src="./img/massage/neck.png" />
         <div class="img_description flex_column">
           <h3>Массаж шеи</h3>
@@ -71,12 +74,13 @@
         document.querySelector('.container').addEventListener('click', (e) => {
           const el = e.target && e.target.closest('div.card');
           if (!el) { return }
-          const params = new URLSearchParams({
-            type: /\/([a-z]+)\.png/.exec(el.querySelector('img').src)[1],
-            price: parseInt(el.querySelector('mark').innerText, 10),
-            duration: parseInt(el.querySelector('h6').innerText, 10),
-          });
-          window.open(`./book.html?${params}`)
+          window.open(el.getAttribute('data-url'), "blank")
+          // const params = new URLSearchParams({
+          //   type: /\/([a-z]+)\.png/.exec(el.querySelector('img').src)[1],
+          //   price: parseInt(el.querySelector('mark').innerText, 10),
+          //   duration: parseInt(el.querySelector('h6').innerText, 10),
+          // });
+          // window.open(`./book.html?${params}`)
         })
       })
     </script>
