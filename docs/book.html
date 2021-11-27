@@ -20,36 +20,14 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
-
     <main class="container">
-      <header class="sticky">
-        <nav>
-          <ul>
-            <li>
-              <a href="./index.html">
-                <h3>OsAnka</h3>
-              </a>
-            </li>
-          </ul>
-          <ul>
-            <li><a href="./index.html" role="button" class="outline">Записаться</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      <img id="map" src="" />
 
     </main>
 
   </body>
   <script>
     window.addEventListener('load', () => {
-      fetch('https://static-maps.yandex.ru/1.x/?ll=49.136322%2C55.791633&size=450,450&z=17&l=map&pt=49.135889,55.791562,org')
-        .then((res) => res.blob())
-        .then((blob) => {
-          document.querySelector('#map').src = URL.createObjectURL(blob)
-        })
-        .catch(console.error)
+      const params = new URLSearchParams(window.location.search); debugger
     })
   </script>
 

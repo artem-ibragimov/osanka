@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="./img/logo192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>OsAnka</title>
+
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <header class="bar">
+      <h3>OsAnka</h3>
+      <a href="https://goo.gl/maps/PX5t3WL12mDPdia88">
+        <b> ул. Щапова, 26А, Казань</b>
+      </a>
+    </header>
+
+    <main class="container">
+
+      <div class="card relative flex_column">
+        <img src="./img/massage/back.png" />
+        <div class="img_description flex_column">
+          <h3>Массаж спины</h3>
+          <h5><del>1000 руб.</del> <mark>750 руб.</mark></h5>
+          <h6>40 мин</h6>
+        </div>
+      </div>
+
+      <div class="card relative flex_column">
+        <img src="./img/massage/body.png" />
+        <div class="img_description flex_column">
+          <h3>Массаж тела</h3>
+          <h5><del>1800 руб.</del> <mark>1500 руб.</mark></h5>
+          <h6>60 мин</h6>
+        </div>
+      </div>
+
+      <div class="card relative flex_column">
+        <img src="./img/massage/foot.png" />
+        <div class="img_description flex_column">
+          <h3>Массаж ног </h3>
+          <h5><del>900 руб.</del> <mark>700 руб.</mark> </h5>
+          <h6>30 мин</h6>
+        </div>
+      </div>
+
+      <div class="card relative flex_column">
+        <img src="./img/massage/neck.png" />
+        <div class="img_description flex_column">
+          <h3>Массаж шеи</h3>
+          <h5><del>850 руб.</del> <mark>700 руб.</mark></h5>
+          <h6>30 мин</h6>
+        </div>
+      </div>
+
+    </main>
+    <script>
+      window.addEventListener('load', () => {
+        document.querySelector('.container').addEventListener('click', (e) => {
+          const el = e.target && e.target.closest('div.card');
+          if (!el) { return }
+          const params = new URLSearchParams({
+            type: /\/([a-z]+)\.png/.exec(el.querySelector('img').src)[1],
+            price: parseInt(el.querySelector('mark').innerText, 10),
+            duration: parseInt(el.querySelector('h6').innerText, 10),
+          });
+          window.open(`./book.html?${params}`)
+        })
+      })
+    </script>
+  </body>
+
+</html>

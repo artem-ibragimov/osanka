@@ -1,0 +1,19 @@
+{
+  "name": "osanka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server:run": "node ./server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artem-ibragimov/osanka.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artem-ibragimov/osanka/issues"
+  },
+  "homepage": "https://github.com/artem-ibragimov/osanka#readme"
+}
